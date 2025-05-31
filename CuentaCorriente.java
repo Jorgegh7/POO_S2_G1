@@ -4,8 +4,8 @@ public class CuentaCorriente extends Cuenta implements InformacionProducto {
 
     int numeroGiro=0;
     int numeroDeposito=0;
-    HashMap<Integer, Long> listaGiros = new HashMap<>();
-    HashMap<Integer, Long> listaDepositos = new HashMap<>();
+    private HashMap<Integer, Long> listaGiros = new HashMap<>();
+    private HashMap<Integer, Long> listaDepositos = new HashMap<>();
 
     public CuentaCorriente(long numeroCuenta, long saldoCuenta) {
         super(numeroCuenta, saldoCuenta);
@@ -24,7 +24,6 @@ public class CuentaCorriente extends Cuenta implements InformacionProducto {
         System.out.println("Numero de Cuenta: " + getNumeroCuenta());
         System.out.println("Saldo: $" + getSaldoCuenta());
         System.out.println("------------------------");
-
     }
 
     @Override
@@ -45,7 +44,6 @@ public class CuentaCorriente extends Cuenta implements InformacionProducto {
         super.depositar(rut, deposito);
         numeroDeposito++;
         listaDepositos.put(numeroDeposito, deposito);
-
     }
 
     @Override
@@ -71,6 +69,5 @@ public class CuentaCorriente extends Cuenta implements InformacionProducto {
             System.out.println("No has realizado giros en tu cuenta");
             System.out.println();
         }
-
     }
 }
