@@ -185,5 +185,4 @@ public class Cliente {
                 "Comuna: " + comuna + '\n' +
                 "Telefono: +569 " + telefono;
     }
-
 }
