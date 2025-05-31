@@ -1,9 +1,6 @@
 public abstract class Cuenta {
     private long numeroCuenta;
     private long saldoCuenta;
-    private long deposito;
-    private long giro;
-
 
     public Cuenta(long numeroCuenta, long saldoCuenta) {
         this.numeroCuenta = numeroCuenta;
@@ -35,10 +32,6 @@ public abstract class Cuenta {
 
     public void girar(String rut, long giro) {
 
-    }
-
-    public long saldoCuenta(String rut){
-        return saldoCuenta;
     }
 
     public static long saldoInicialCuenta(){
