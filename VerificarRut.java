@@ -11,7 +11,4 @@ public class VerificarRut {
         String rutVerificado = rut;
         return rutVerificado;
     }
-
-
-
 }
