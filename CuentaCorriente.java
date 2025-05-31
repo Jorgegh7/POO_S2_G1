@@ -1,12 +1,20 @@
-public class CuentaCorriente extends Cuenta{
+import java.util.HashMap;
+
+public class CuentaCorriente extends Cuenta implements InformacionProducto {
+
+    int numeroGiro=0;
+    int numeroDeposito=0;
+    HashMap<Integer, Long> listaGiros = new HashMap<>();
+    HashMap<Integer, Long> listaDepositos = new HashMap<>();
 
     public CuentaCorriente(long numeroCuenta, long saldoCuenta) {
         super(numeroCuenta, saldoCuenta);
     }
-public void estadoCuenta(){
-    System.out.println("Numero de Cuenta: " + getNumeroCuenta());
-    System.out.println("Saldo: $" + getSaldoCuenta());
-}
+
+    public void estadoCuenta() {
+        System.out.println("Numero de Cuenta: " + getNumeroCuenta());
+        System.out.println("Saldo: $" + getSaldoCuenta());
+    }
 
     @Override
     public void imprimirCuenta() {
@@ -25,8 +33,44 @@ public void estadoCuenta(){
         if (giro <= 0 || giro > getSaldoCuenta()) {
             System.out.println("Accion invalida");
         } else {
-            setSaldoCuenta(getSaldoCuenta()-giro);
+            setSaldoCuenta(getSaldoCuenta() - giro);
             System.out.println("Tu saldo actual es: $" + getSaldoCuenta());
+            numeroGiro++;
+            listaGiros.put(numeroGiro, giro);
         }
+    }
+
+    @Override
+    public void depositar(String rut, long deposito) {
+        super.depositar(rut, deposito);
+        numeroDeposito++;
+        listaDepositos.put(numeroDeposito, deposito);
+
+    }
+
+    @Override
+    public void informacionTransacciones() {
+        if (!listaDepositos.isEmpty()){
+            for(int i=0; i<listaDepositos.size(); i++){
+                System.out.println("Deposito Numero:" +(i+1));
+                System.out.println("Valor Deposito: $" + listaDepositos.get(i + 1));
+                System.out.println();
+
+            }
+        }else {
+            System.out.println("No has realizado giros en tu cuenta");
+        }
+
+        if (!listaGiros.isEmpty()) {
+            for (int i = 0; i < listaGiros.size(); i++) {
+                System.out.println("Giro Numero:" + (i+1));
+                System.out.println("Valor Giro: $" + listaGiros.get(i + 1));
+                System.out.println();
+            }
+        }else {
+            System.out.println("No has realizado giros en tu cuenta");
+            System.out.println();
+        }
+
     }
 }
