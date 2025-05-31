@@ -100,8 +100,21 @@ public class BankBostonMain {
                                     }
                                     break;
                                 case 5:
+                                    String rutVerificado5=VerificarRut.verificarRut();
+                                    if(Administracion.cuentaCorrienteRegistadaPorRut.containsKey(rutVerificado5)) {
+                                        CuentaCorriente cuentaCorrienteConsulta = (CuentaCorriente) Administracion.cuentaCorrienteRegistadaPorRut.get(rutVerificado5);
+                                        System.out.println();
+                                        cuentaCorrienteConsulta.imprimirCuenta();
+                                        cuentaCorrienteConsulta.informacionTransacciones();
+                                    }else{
+                                        System.out.println("No posees una cuenta corriente registrada");
+                                    }
+                                    break;
+
+                                case 6:
                                     Administracion.Menu();
                                     break;
+
                             }
                             break;
 
@@ -232,7 +245,6 @@ public class BankBostonMain {
                                     break;
                             }
                             break;
-
 
                         case 4:
                             Administracion.Menu();
