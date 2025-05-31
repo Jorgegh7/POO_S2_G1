@@ -8,6 +8,7 @@ public class CuentaCredito extends Cuenta{
     public CuentaCredito(long numeroCuenta, long saldoCuenta) {
         super(numeroCuenta, saldoCuenta);
     }
+
     public void estadoCuenta(){
         System.out.println("------------------------");
         System.out.println("Cuenta de Credito");
@@ -29,11 +30,7 @@ public class CuentaCredito extends Cuenta{
             deudaCredito = deudaCredito - abono;
             System.out.println("Realizaste un abono por el valor de: $" + abono);
             System.out.println("El valor de tu credito total es: $" + deudaCredito);
-
         }
-
-
-
     }
 
     @Override
@@ -49,8 +46,5 @@ public class CuentaCredito extends Cuenta{
             System.out.println("Contrataste un credito por el valor de: $" + credito);
             System.out.println("Valor Total Credito: $" + deudaCredito);
         }
-
-
     }
-
 }
