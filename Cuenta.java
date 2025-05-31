@@ -22,8 +22,6 @@ public abstract class Cuenta {
     }
 
 
-
-
     public void depositar(String rut, long deposito){
         saldoCuenta= saldoCuenta + deposito;
         System.out.println("Tu saldo actual es: $" + saldoCuenta);
@@ -61,4 +59,3 @@ public abstract class Cuenta {
                 "-----------------------";
     }
 }
-
