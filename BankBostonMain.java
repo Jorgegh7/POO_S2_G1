@@ -103,7 +103,7 @@ public class BankBostonMain {
                                     String rutVerificado5=VerificarRut.verificarRut();
                                     if(Administracion.cuentaCorrienteRegistadaPorRut.containsKey(rutVerificado5)) {
                                         CuentaCorriente cuentaCorrienteConsulta = (CuentaCorriente) Administracion.cuentaCorrienteRegistadaPorRut.get(rutVerificado5);
-                                        System.out.println();
+                                        System.out.println("Estado actual de cuenta");
                                         cuentaCorrienteConsulta.imprimirCuenta();
                                         cuentaCorrienteConsulta.informacionTransacciones();
                                     }else{
@@ -114,7 +114,6 @@ public class BankBostonMain {
                                 case 6:
                                     Administracion.Menu();
                                     break;
-
                             }
                             break;
 
@@ -178,6 +177,17 @@ public class BankBostonMain {
                                     }
                                     break;
                                 case 5:
+                                    String rutVerificado5=VerificarRut.verificarRut();
+                                    if(Administracion.cuentaAhorroRegistadaPorRut.containsKey(rutVerificado5)) {
+                                        CuentaAhorro cuentaAhorroConsulta = (CuentaAhorro) Administracion.cuentaAhorroRegistadaPorRut.get(rutVerificado5);
+                                        System.out.println("Estado actual de cuenta");
+                                        cuentaAhorroConsulta.imprimirCuenta();
+                                        cuentaAhorroConsulta.informacionTransacciones();
+                                    }else{
+                                        System.out.println("No posees una Cuenta Ahorro registrada");
+                                    }
+                                    break;
+                                case 6:
                                     Administracion.Menu();
                                     break;
                             }
@@ -224,6 +234,7 @@ public class BankBostonMain {
                                         CuentaCredito cuentaCreditoConsulta = (CuentaCredito) Administracion.cuentaCreditoRegistadaPorRut.get(rutVerificado3);
                                         System.out.println("Ingresa el monto del Credito que deseas contratar");
                                         System.out.println("Este valor debe ser mayor a $1000");
+                                        System.out.println("El cupo máximo de la Cuenta Credito es de $1.000.000 CLP");
                                         Scanner scannerGiro = new Scanner(System.in);
                                         long giro = scannerGiro.nextLong();
                                         cuentaCreditoConsulta.girar(rutVerificado3, giro);
@@ -241,11 +252,22 @@ public class BankBostonMain {
                                     break;
 
                                 case 5:
+                                    String rutVerificado5=VerificarRut.verificarRut();
+                                    if(Administracion.cuentaCreditoRegistadaPorRut.containsKey(rutVerificado5)) {
+                                        CuentaCredito cuentaCreditoConsulta = (CuentaCredito) Administracion.cuentaCreditoRegistadaPorRut.get(rutVerificado5);
+                                        System.out.println("Estado actual de cuenta");
+                                        cuentaCreditoConsulta.estadoCuenta();
+                                        cuentaCreditoConsulta.informacionTransacciones();
+                                    }else{
+                                        System.out.println("No posees una Cuenta Credito registrada");
+                                    }
+                                    break;
+                                case 6:
                                     Administracion.Menu();
                                     break;
                             }
                             break;
-
+                            
                         case 4:
                             Administracion.Menu();
                             break;
