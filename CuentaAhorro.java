@@ -39,9 +39,6 @@ public class CuentaAhorro extends Cuenta {
             numeroGiros++;
             setSaldoCuenta(getSaldoCuenta()-giro);
             estadoCuenta();
-
         }
-
-
     }
 }
