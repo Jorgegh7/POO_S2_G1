@@ -38,12 +38,11 @@ public class Administracion {
         System.out.println("2. Ver Estado Cuenta");
         System.out.println("3. Giro");
         System.out.println("4. Deposito");
-        System.out.println("5. Información de Giros y Deposito");
+        System.out.println("5. Información de Transacciones");
         System.out.println("6. Salir");
 
         int opcionMenu= scanner.nextInt();
         return opcionMenu;
-
     }
 
     public static int menuCredito(){
@@ -54,10 +53,10 @@ public class Administracion {
         System.out.println("2. Ver Estado Cuenta");
         System.out.println("3. Credito");
         System.out.println("4. Abono");
-        System.out.println("5. Salir");
+        System.out.println("5. Información de Transacciones");
+        System.out.println("6. Salir");
 
         int opcionMenu= scanner.nextInt();
         return opcionMenu;
     }
-
 }
