@@ -1,5 +1,10 @@
-public class CuentaAhorro extends Cuenta {
-    int numeroGiros;
+import java.util.HashMap;
+
+public class CuentaAhorro extends Cuenta implements InformacionProducto{
+    int numeroGiros=0;
+    int numeroDeposito=0;
+    private HashMap<Integer, Long> listaGiros = new HashMap<>();
+    private HashMap<Integer, Long> listaDepositos = new HashMap<>();
 
 
     public CuentaAhorro(long numeroCuenta, long saldoCuenta) {
@@ -19,6 +24,8 @@ public class CuentaAhorro extends Cuenta {
     @Override
     public void depositar(String rut, long deposito) {
         super.depositar(rut, deposito);
+        numeroDeposito++;
+        listaDepositos.put(numeroDeposito, deposito);
     }
 
     @Override
@@ -39,6 +46,32 @@ public class CuentaAhorro extends Cuenta {
             numeroGiros++;
             setSaldoCuenta(getSaldoCuenta()-giro);
             estadoCuenta();
+            listaGiros.put(numeroGiros, giro);
+        }
+    }
+
+    @Override
+    public void informacionTransacciones() {
+        if (!listaDepositos.isEmpty()){
+            for(int i=0; i<listaDepositos.size(); i++){
+                System.out.println("Deposito Numero:" +(i+1));
+                System.out.println("Valor Deposito: $" + listaDepositos.get(i + 1));
+                System.out.println();
+
+            }
+        }else {
+            System.out.println("No has realizado giros en tu cuenta");
+        }
+
+        if (!listaGiros.isEmpty()) {
+            for (int i = 0; i < listaGiros.size(); i++) {
+                System.out.println("Giro Numero:" + (i+1));
+                System.out.println("Valor Giro: $" + listaGiros.get(i + 1));
+                System.out.println();
+            }
+        }else {
+            System.out.println("No has realizado giros en tu cuenta");
+            System.out.println();
         }
     }
 }
